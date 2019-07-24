@@ -1,0 +1,46 @@
+<ActionBar class="action-bar">
+    <StackLayout class="action-bar-title">
+        <Label [text]="'MYTICKETS' | translate"></Label>
+    </StackLayout>
+</ActionBar>
+
+<GridLayout class="page page-content home-page-content" rows="160, 80, *">
+    <!-- Chart -->
+    <StackLayout row="0" class="balance-chart">      
+        <app-expenses-chart  [data]="expensesChartDataEs"></app-expenses-chart>
+    </StackLayout>
+
+    <!-- Balance Summary -->
+    <GridLayout row="1" columns="*, *, *, *" class="balance-summary">
+        <StackLayout col="0">
+            <Label [text]="'balance.open' | translate" class="title" textWrap="true"></Label>
+            <Label text="9" class="ammount"></Label>
+            <Label class="hr-light blue" [style.width]="'60%'"></Label>
+        </StackLayout>
+
+        <StackLayout col="1">
+            <Label [text]="'balance.closed' | translate" class="title"
+                textWrap="true"></Label>
+            <Label text="4" class="ammount"></Label>
+            <Label class="hr-light green" [style.width]="'30%'"></Label>
+        </StackLayout>
+
+        <StackLayout col="2">
+            <Label [text]="'balance.invalid' | translate" class="title"
+                textWrap="true"></Label>
+            <Label text="2" class="ammount"></Label>
+            <Label class="hr-light orange" [style.width]="'15%'"></Label>
+        </StackLayout>
+        <StackLayout col="3">
+            <Label [text]="'balance.validation' | translate" class="title"
+                textWrap="true"></Label>
+            <Label text="2" class="ammount"></Label>
+            <Label class="hr-light red" [style.width]="'5%'"></Label>
+        </StackLayout>
+    </GridLayout>
+
+    <!-- Trnsactions -->
+    <StackLayout row="2">
+        <app-transactions-list [transactions]="transactions"></app-transactions-list>
+    </StackLayout>
+</GridLayout>

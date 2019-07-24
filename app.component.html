@@ -1,0 +1,62 @@
+<RadSideDrawer [drawerTransition]="sideDrawerTransition" drawerContentSize="280">
+    <GridLayout tkDrawerContent rows="auto, *" class="sidedrawer">
+        <StackLayout row="0" class="sidedrawer-header">
+            <Image class="sidedrawer-header-image" src="~/images/avatar.png"></Image>
+
+            <Label class="sidedrawer-header-name" text="Citizen Name"></Label>
+
+            <Label class="sidedrawer-header-balance">
+                <FormattedString>
+                    <Span [text]="'sidedrawer.balance' | translate" class=" label"></Span>
+                    <Span [text]="' 344'" class="ammount"></Span>
+                </FormattedString>
+            </Label>
+        </StackLayout>
+
+        <GridLayout row="1" rows="*, auto, 80" class="sidedrawer-body">
+            <ScrollView row="0">
+                <StackLayout class="sidedrawer-menu">
+                    <GridLayout columns="auto, *" class="sidedrawer-list-item"
+                        [class.selected]="isComponentSelected('/homebase')"
+                        (tap)="onNavItemTap('/homebase')">
+                        <Label col="0" text="&#xe9ad;" class="icon"></Label>
+                        <Label col="1" [text]="'MYTICKETS' | translate" class="p-r-10"></Label>
+                    </GridLayout>
+
+                    <GridLayout columns="auto, *" class="sidedrawer-list-item"
+                        [class.selected]="isComponentSelected('/cardbase')"
+                        (tap)="onNavItemTap('/cardbase')">
+                        <Label col="0" text="&#xea15;" class="icon"></Label>
+                        <Label col="1" [text]="'TICKETSPENDING' | translate"
+                            class="p-r-10"></Label>
+                    </GridLayout>
+                </StackLayout>
+            </ScrollView>
+
+            <GridLayout row="1" columns="10, 130, 130, 10" class="sidedrawer-language">
+                <Label col="1" [text]="'sidedrawer.english' | translate"
+                    [class.selected]="currentLanguage === 'en'" (tap)="changeLanguage('en')"></Label>
+                <Label col="2" [text]="'sidedrawer.hindi' | translate"
+                    [class.selected]="currentLanguage === 'hi'"></Label>
+            </GridLayout>
+
+            <StackLayout row="2" class="sidedrawer-footer">
+
+                <GridLayout columns="auto, *" class="sidedrawer-list-item"
+                    [class.selected]="true" (tap)="onLogout()">
+                    <Label col="1" [text]="'LOGOUT' | translate" class="p-r-10"></Label>
+                </GridLayout>
+
+
+            </StackLayout>
+        </GridLayout>
+    </GridLayout>
+
+    <GridLayout rows="*, auto" class="page" tkMainContent>
+        <StackLayout row="0">
+            <page-router-outlet></page-router-outlet>
+        </StackLayout>
+
+
+    </GridLayout>
+</RadSideDrawer>

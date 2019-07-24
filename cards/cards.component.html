@@ -1,0 +1,46 @@
+<ActionBar class="action-bar">
+    <StackLayout class="action-bar-title">
+        <Label text="{{ 'TICKETSPENDING' | translate }}"></Label>
+    </StackLayout>
+</ActionBar>
+
+<ScrollView>
+    <StackLayout>
+        <GridLayout rows="*, *, *, *, *, *" columns="80, *" class="form">
+            <Label row="0" col="0" text="Raise to:" horizontalAlignment="right"
+                class="label" textWrap="true"></Label>
+            <TextField row="0" col="1" [(ngModel)]="toEmail" hint="Govt. department"
+                class="input input-border" textWrap="true"></TextField>
+            <Label row="1" col="0" text="Issue:" horizontalAlignment="right"
+                class="label" textWrap="true"></Label>
+            <TextField row="1" col="1" [(ngModel)]="ccEmail" hint="Description"
+                class="input input-border" textWrap="true"></TextField>
+            <!--<Label row="2" col="0" text="BCC:" horizontalAlignment="right"
+                class="label"></Label>
+          <TextField row="2" col="1" [(ngModel)]="bccEmail" hint="bcc email address(es)"
+                class="input input-border" keyboardType="email"></TextField>
+            <Label row="3" col="0" text="Subject:" horizontalAlignment="right"
+                class="label"></Label>
+            <TextField row="3" col="1" [(ngModel)]="subject" hint="compose email subject"
+                class="input input-border"></TextField>
+            <Label row="4" col="0" text="Message:" horizontalAlignment="right"
+                class="label"></Label>
+            <TextField row="4" col="1" [(ngModel)]="message" hint="compose email message"
+                class="input input-border"></TextField> -->
+            <Label row="2" col="0" text="Picture:" horizontalAlignment="right"
+                class="label" textWrap="true"></Label>
+            <Button row="2" col="1" text="Take Picture" (tap)="onTakePictureTap($event)"
+                padding="10" class="btn btn-primary"></Button>
+            <Image row="3" col="1" [src]="cameraImage" stretch="fill" margin="10"></Image>
+            <Label row="4" col="0" text="Location:" horizontalAlignment="right"
+                class="label" textWrap="true"></Label>
+            <Button row="4" col="1" text="Get My Location" (tap)="getLocation()"
+                padding="10" class="btn btn-primary"></Button>
+            <Label row="5" col="0" text="" horizontalAlignment="right" class="label"
+                textWrap="true"></Label>
+            <Label row="5" col="1" text="{{'Latitude: ' + lat + ', ' + 'Longitude: ' + lon}}"
+                horizontalAlignment="right" class="label" textWrap="true"></Label>
+        </GridLayout>
+        <Button text="Create Ticket" (tap)="onEmailSend($event)" class="loginB"></Button>
+    </StackLayout>
+</ScrollView>
